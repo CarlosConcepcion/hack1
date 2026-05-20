@@ -1,0 +1,322 @@
+{
+  "tool": "NetAudit v1.0.0",
+  "capture_duration": 0.03,
+  "statistics": {
+    "total_packets": 19,
+    "total_bytes": 2015,
+    "total_mb": 0.0,
+    "ip_packets": 19,
+    "tcp_packets": 18,
+    "udp_packets": 1,
+    "icmp_packets": 0,
+    "other_packets": 0,
+    "unique_sources": 8,
+    "unique_destinations": 8,
+    "protocol_breakdown": {
+      "TCP": 18,
+      "HTTP": 2,
+      "SMB": 2,
+      "KERBEROS": 1,
+      "TLS": 3,
+      "FTP": 3,
+      "TELNET": 4,
+      "UDP": 1,
+      "DNS": 1,
+      "SSH": 1,
+      "MYSQL": 1,
+      "REDIS": 1
+    }
+  },
+  "credentials": [
+    {
+      "type": "HTTP Basic Auth",
+      "timestamp": 1779244501.4031734,
+      "source": "192.168.1.100:54321",
+      "target": "10.0.0.1:80",
+      "username": "admin",
+      "password": "supersecret123",
+      "url": "http://admin.example.com/admin",
+      "method": "GET"
+    },
+    {
+      "type": "FTP",
+      "timestamp": 1779244501.4090505,
+      "source": "192.168.1.100:50001",
+      "target": "10.0.0.5:21",
+      "username": "auditor",
+      "password": "P@ssw0rd!",
+      "banner": "FTP Ready"
+    },
+    {
+      "type": "Telnet",
+      "timestamp": 1779244501.409853,
+      "source": "192.168.1.100:60000",
+      "target": "10.0.0.3:23",
+      "username": "admin",
+      "password": "telnetpass"
+    }
+  ],
+  "http_requests": [
+    {
+      "timestamp": 1779244501.4031734,
+      "source": "192.168.1.100:54321",
+      "target": "10.0.0.1:80",
+      "method": "GET",
+      "host": "admin.example.com",
+      "path": "/admin",
+      "user_agent": ""
+    }
+  ],
+  "dns_queries": [
+    {
+      "timestamp": 1779244501.4104774,
+      "source": "192.168.1.100",
+      "resolver": "8.8.8.8",
+      "domain": "example.com",
+      "type": "A",
+      "response": ""
+    }
+  ],
+  "service_banners": [
+    {
+      "timestamp": 1779244501.4035437,
+      "ip": "192.168.1.100",
+      "port": 54321,
+      "service": "HTTP",
+      "banner": "Apache/2.4.41"
+    },
+    {
+      "timestamp": 1779244501.4082947,
+      "ip": "192.168.1.100",
+      "port": 50001,
+      "service": "FTP",
+      "banner": "220 FTP Ready"
+    },
+    {
+      "timestamp": 1779244501.4108496,
+      "ip": "192.168.1.100",
+      "port": 40000,
+      "service": "SSH",
+      "banner": "SSH-2.0-OpenSSH_9.0p1"
+    },
+    {
+      "timestamp": 1779244501.4110894,
+      "ip": "192.168.1.100",
+      "port": 40010,
+      "service": "MySQL",
+      "banner": ".36-0ubuntu0.22.04.1"
+    },
+    {
+      "timestamp": 1779244501.4112844,
+      "ip": "192.168.1.100",
+      "port": 40011,
+      "service": "Redis",
+      "banner": "+PONG"
+    }
+  ],
+  "ntlm_authentication": [
+    {
+      "timestamp": 1779244501.4054391,
+      "type": "NTLM Type 3",
+      "source": "192.168.1.100:49152",
+      "target": "10.0.0.50:445",
+      "username": "administrator",
+      "domain": "WORKGROUP",
+      "workstation": "PC-01",
+      "challenge": "",
+      "nt_response": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa00000000000000000000000000000000",
+      "lm_response": "000000000000000000000000000000000000000000000000",
+      "os_version": "Windows 10.0.19041"
+    }
+  ],
+  "http_cookies": [
+    {
+      "timestamp": 1779244501.4031734,
+      "source": "192.168.1.100",
+      "domain": "admin.example.com",
+      "name": "session",
+      "value": "abc123",
+      "secure": false,
+      "http_only": false
+    },
+    {
+      "timestamp": 1779244501.4035437,
+      "source": "10.0.0.1",
+      "domain": "192.168.1.100",
+      "name": "PHPSESSID",
+      "value": "abc123",
+      "secure": true,
+      "http_only": true
+    }
+  ],
+  "smb_traffic": [
+    {
+      "timestamp": 1779244501.4044929,
+      "source": "192.168.1.100:49152",
+      "target": "10.0.0.50:445",
+      "smb_version": "SMB 2.0.2",
+      "command": "SMB2 NEGOTIATE",
+      "username": "",
+      "domain": "",
+      "share": "",
+      "ntlmssp_detected": false
+    },
+    {
+      "timestamp": 1779244501.4054391,
+      "source": "192.168.1.100:49152",
+      "target": "10.0.0.50:445",
+      "smb_version": "SMB 2.0.2",
+      "command": "SMB2 SESSION_SETUP",
+      "username": "administrator",
+      "domain": "WORKGROUP",
+      "share": "",
+      "ntlmssp_detected": true
+    }
+  ],
+  "kerberos_authentication": [
+    {
+      "timestamp": 1779244501.406794,
+      "source": "192.168.1.100:50000",
+      "target": "10.0.0.55:88",
+      "msg_type": "AS-REQ",
+      "realm": "DOMAIN.LOCAL",
+      "client_name": "jdoe",
+      "service_name": "",
+      "ticket_encryption": "AES128-CTS-HMAC-SHA256-128"
+    }
+  ],
+  "tls_handshakes": [
+    {
+      "timestamp": 1779244501.4072387,
+      "source": "192.168.1.100:54321",
+      "target": "93.184.216.34:443",
+      "handshake_type": "ClientHello",
+      "tls_version": "TLS 1.0",
+      "sni": "www.example.com",
+      "subject": "",
+      "issuer": ""
+    },
+    {
+      "timestamp": 1779244501.4075866,
+      "source": "93.184.216.34:443",
+      "target": "192.168.1.100:54321",
+      "handshake_type": "ServerHello",
+      "tls_version": "TLS 1.2",
+      "sni": "www.example.com",
+      "subject": "",
+      "issuer": ""
+    },
+    {
+      "timestamp": 1779244501.4079616,
+      "source": "93.184.216.34:443",
+      "target": "192.168.1.100:54321",
+      "handshake_type": "Certificate",
+      "tls_version": "TLS 1.2",
+      "sni": "www.example.com",
+      "subject": "",
+      "issuer": ""
+    }
+  ],
+  "conversations": [
+    {
+      "src_ip": "192.168.1.100",
+      "src_port": 54321,
+      "dst_ip": "10.0.0.1",
+      "dst_port": 80,
+      "protocol": "TCP",
+      "packets": 2,
+      "bytes": 276,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "192.168.1.100",
+      "src_port": 49152,
+      "dst_ip": "10.0.0.50",
+      "dst_port": 445,
+      "protocol": "TCP",
+      "packets": 2,
+      "bytes": 440,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "192.168.1.100",
+      "src_port": 50000,
+      "dst_ip": "10.0.0.55",
+      "dst_port": 88,
+      "protocol": "TCP",
+      "packets": 1,
+      "bytes": 60,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "192.168.1.100",
+      "src_port": 54321,
+      "dst_ip": "93.184.216.34",
+      "dst_port": 443,
+      "protocol": "TCP",
+      "packets": 3,
+      "bytes": 468,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "10.0.0.5",
+      "src_port": 21,
+      "dst_ip": "192.168.1.100",
+      "dst_port": 50001,
+      "protocol": "TCP",
+      "packets": 3,
+      "bytes": 105,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "10.0.0.3",
+      "src_port": 23,
+      "dst_ip": "192.168.1.100",
+      "dst_port": 60000,
+      "protocol": "TCP",
+      "packets": 4,
+      "bytes": 114,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "192.168.1.100",
+      "src_port": 44444,
+      "dst_ip": "8.8.8.8",
+      "dst_port": 53,
+      "protocol": "UDP",
+      "packets": 1,
+      "bytes": 37,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "10.0.0.2",
+      "src_port": 22,
+      "dst_ip": "192.168.1.100",
+      "dst_port": 40000,
+      "protocol": "TCP",
+      "packets": 1,
+      "bytes": 43,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "10.0.0.10",
+      "src_port": 3306,
+      "dst_ip": "192.168.1.100",
+      "dst_port": 40010,
+      "protocol": "TCP",
+      "packets": 1,
+      "bytes": 65,
+      "duration": 0.0
+    },
+    {
+      "src_ip": "10.0.0.11",
+      "src_port": 6379,
+      "dst_ip": "192.168.1.100",
+      "dst_port": 40011,
+      "protocol": "TCP",
+      "packets": 1,
+      "bytes": 27,
+      "duration": 0.0
+    }
+  ]
+}
